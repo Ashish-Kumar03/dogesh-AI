@@ -1,0 +1,30 @@
+{
+  "created_at": "2025-08-26T10:50:15.280703Z",
+  "chat_history": [
+    {
+      "role": "user",
+      "text": "Hello"
+    },
+    {
+      "role": "bot",
+      "text": "I’m not fully sure about that. Could you rephrase your question or provide a few more details? For urgent or severe symptoms, please contact a veterinarian."
+    },
+    {
+      "role": "user",
+      "text": "Demtal care"
+    },
+    {
+      "role": "bot",
+      "text": "I’m not fully sure about that. Could you rephrase your question or provide a few more details? For urgent or severe symptoms, please contact a veterinarian."
+    },
+    {
+      "role": "user",
+      "text": "Dental care"
+    },
+    {
+      "role": "bot",
+      "text": "Daily tooth brushing with dog toothpaste, dental chews, and periodic professional cleaning help prevent periodontal disease."
+    }
+  ],
+  "image_history": []
+}

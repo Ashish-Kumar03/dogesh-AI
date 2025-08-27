@@ -1,0 +1,23 @@
+{
+  "created_at": "2025-08-26T08:32:08.631396Z",
+  "chat_history": [],
+  "image_history": [
+    {
+      "filename": "dog_image.jpg",
+      "analysis": {
+        "breed": "bull mastiff",
+        "breed_confidence": 0.738,
+        "brightness": 0.68,
+        "clarity": 0.082,
+        "color_balance": 0.63,
+        "summary": "Photo quality limitations may affect assessment.",
+        "nutrition_tips": [
+          "Feed a complete, AAFCO-compliant diet appropriate for your dog’s life stage.",
+          "Keep treats under 10% of daily calories.",
+          "Ensure fresh water at all times.",
+          "Maintain a consistent feeding schedule."
+        ]
+      }
+    }
+  ]
+}

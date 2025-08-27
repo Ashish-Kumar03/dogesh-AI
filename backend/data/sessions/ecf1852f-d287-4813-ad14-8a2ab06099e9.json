@@ -1,0 +1,81 @@
+{
+  "created_at": "2025-08-26T12:18:57.257965Z",
+  "chat_history": [
+    {
+      "role": "user",
+      "text": "Hi"
+    },
+    {
+      "role": "bot",
+      "text": "I’m not fully sure about that. Could you rephrase your question or provide a few more details? For urgent or severe symptoms, please contact a veterinarian."
+    },
+    {
+      "role": "user",
+      "text": "How are tou?"
+    },
+    {
+      "role": "bot",
+      "text": "I’m not fully sure about that. Could you rephrase your question or provide a few more details? For urgent or severe symptoms, please contact a veterinarian."
+    },
+    {
+      "role": "user",
+      "text": "Debtal care"
+    },
+    {
+      "role": "bot",
+      "text": "I’m not fully sure about that. Could you rephrase your question or provide a few more details? For urgent or severe symptoms, please contact a veterinarian."
+    },
+    {
+      "role": "user",
+      "text": "Dental care"
+    },
+    {
+      "role": "bot",
+      "text": "Daily tooth brushing with dog toothpaste, dental chews, and periodic professional cleaning help prevent periodontal disease."
+    },
+    {
+      "role": "user",
+      "text": "Dogs vaccine "
+    },
+    {
+      "role": "bot",
+      "text": "Core vaccines include rabies, distemper, parvovirus, adenovirus. Non-core like bordetella, leptospirosis, and Lyme depend on lifestyle and region."
+    }
+  ],
+  "image_history": [
+    {
+      "filename": "dog.jpg",
+      "analysis": {
+        "breed": "golden retriever",
+        "breed_confidence": 0.73,
+        "brightness": 0.542,
+        "clarity": 0.026,
+        "color_balance": 0.196,
+        "summary": "Photo quality limitations may affect assessment.",
+        "nutrition_tips": [
+          "Feed a complete, AAFCO-compliant diet appropriate for your dog’s life stage.",
+          "Keep treats under 10% of daily calories.",
+          "Ensure fresh water at all times.",
+          "Maintain a consistent feeding schedule."
+        ]
+      }
+    },
+    {
+      "filename": "dog.jpg",
+      "analysis": {
+        "breed": "bull mastiff",
+        "breed_confidence": 0.738,
+        "brightness": 0.68,
+        "clarity": 0.082,
+        "color_balance": 0.63,
+        "summary": "Photo quality limitations may affect assessment.",
+        "nutrition_tips": [
+          "Feed a complete, AAFCO-compliant diet appropriate for your dog’s life stage.",
+          "Keep treats under 10% of daily calories.",
+          "Ensure fresh water at all times.",
+          "Maintain a consistent feeding schedule."
+        ]
+      }
+    }
+  ]
+}
