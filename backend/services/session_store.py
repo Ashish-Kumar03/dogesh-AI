@@ -77,7 +77,19 @@ class SessionStore:
         with self._lock:
             if session_id not in self._sessions:
                 raise KeyError("Invalid session_id")
-            self._sessions[session_id]["chat_history"].append({"role": role, "text": text})
+            # Normalize role to match OpenAI API requirements
+        role_map = {
+            "bot": "assistant",
+            "ai": "assistant",
+            "human": "user"
+        }
+        normalized_role = role_map.get(role, role)  # fallback to same if already valid
+
+        self._sessions[session_id]["chat_history"].append({
+            "role": normalized_role,
+            "text": text
+        })
+
         self._save_snapshot(session_id)
 
     def add_image_analysis(self, session_id: str, filename: str, analysis: Dict[str, Any]) -> None:
@@ -86,6 +98,7 @@ class SessionStore:
                 raise KeyError("Invalid session_id")
             self._sessions[session_id]["image_history"].append({
                 "filename": filename,
+                "image_path": os.path.abspath(filename),
                 "analysis": analysis
             })
         self._save_snapshot(session_id)

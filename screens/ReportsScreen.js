@@ -32,30 +32,17 @@ export default function ReportsScreen() {
   }, []);
 
   const fetchReport = async () => {
-    if (!sessionId) {
-      Alert.alert(
-        "Session missing",
-        "No session found. Start chat or upload an image first."
-      );
-      return;
-    }
-
+    if (!sessionId) return;
     setLoading(true);
     try {
       const res = await axios.get(`${API_URL}/session/${sessionId}/report`);
-      if (!res.data) {
-        Alert.alert("No report", "No report available for this session yet.");
-        return;
-      }
-      setReport(res.data);
+      setReport(res.data); // now always gets latest report
     } catch (err) {
-      console.log("Error fetching report:", err?.response?.data || err.message);
-      Alert.alert("Error", "Could not load report. Ensure session exists.");
+      console.log(err);
     } finally {
       setLoading(false);
     }
   };
-
   const downloadReport = () => {
     if (report?.report_url) {
       // Append timestamp to force fresh download

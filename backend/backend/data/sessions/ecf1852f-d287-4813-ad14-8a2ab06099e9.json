@@ -1,0 +1,179 @@
+{
+  "session_id": "ecf1852f-d287-4813-ad14-8a2ab06099e9",
+  "chat_history": [
+    {
+      "role": "user",
+      "text": "Hi",
+      "ts": "2025-08-27T10:37:40.193979Z"
+    },
+    {
+      "role": "bot",
+      "text": "I\u2019m not fully sure about that. Could you rephrase your question or provide a few more details? For urgent or severe symptoms, please contact a veterinarian.",
+      "matched_question": "",
+      "score": 0.16672790050506592,
+      "ts": "2025-08-27T10:37:40.193979Z"
+    },
+    {
+      "role": "user",
+      "text": "How to prevent dog from fever",
+      "ts": "2025-08-27T10:37:52.305973Z"
+    },
+    {
+      "role": "bot",
+      "text": "A dog\u2019s normal temperature is 101\u2013102.5\u00b0F. Fever (>103\u00b0F) can signal infection or inflammation. Use a rectal thermometer and contact a vet.",
+      "matched_question": "my dog has a fever",
+      "score": 0.806437611579895,
+      "ts": "2025-08-27T10:37:52.305973Z"
+    },
+    {
+      "role": "user",
+      "text": "Dental care ",
+      "ts": "2025-08-27T10:44:42.065375Z"
+    },
+    {
+      "role": "bot",
+      "text": "Daily tooth brushing with dog toothpaste, dental chews, and periodic professional cleaning help prevent periodontal disease.",
+      "matched_question": "dental care",
+      "score": 1.0,
+      "ts": "2025-08-27T10:44:42.065375Z"
+    }
+  ],
+  "image_history": [
+    {
+      "image_id": "07d07a10-f388-4c36-ac45-1b256d7f1bb0.jpg",
+      "filename": "07d07a10-f388-4c36-ac45-1b256d7f1bb0.jpg",
+      "breed": "Labrador retriever",
+      "breed_confidence": 0.6933414340019226,
+      "brightness": 0.5414314254501119,
+      "clarity": 0.0366723265419574,
+      "color_balance": 0.1944099825186587,
+      "summary": "Photo quality limitations may affect assessment.",
+      "nutrition_tips": [
+        "Feed a complete, AAFCO-compliant diet appropriate for your dog\u2019s life stage.",
+        "Keep treats under 10% of daily calories.",
+        "Ensure fresh water at all times.",
+        "Maintain a consistent feeding schedule."
+      ],
+      "ts": "2025-08-27T10:38:14.410578Z"
+    },
+    {
+      "image_id": "9c4fec2c-499d-4861-be0c-7688d2d3c9c6.jpg",
+      "filename": "9c4fec2c-499d-4861-be0c-7688d2d3c9c6.jpg",
+      "breed": "Eskimo dog",
+      "breed_confidence": 0.4645195007324219,
+      "brightness": 0.4078550441781651,
+      "clarity": 0.5651926140996781,
+      "color_balance": 0.9340162411409414,
+      "summary": "Overall photo quality is adequate for a quick visual check. No obvious visual issues from the photo alone (not a diagnosis).",
+      "nutrition_tips": [
+        "Feed a complete, AAFCO-compliant diet appropriate for your dog\u2019s life stage.",
+        "Keep treats under 10% of daily calories.",
+        "Ensure fresh water at all times.",
+        "Maintain a consistent feeding schedule."
+      ],
+      "ts": "2025-08-27T10:38:56.254183Z"
+    },
+    {
+      "image_id": "096af7b3-7026-478a-bec3-0049d3801522.jpg",
+      "filename": "096af7b3-7026-478a-bec3-0049d3801522.jpg",
+      "breed": "German shepherd",
+      "breed_confidence": 0.9992374181747437,
+      "brightness": 0.5445621483994396,
+      "clarity": 0.23447108721404175,
+      "color_balance": 0.9260466570638053,
+      "summary": "Photo quality limitations may affect assessment.",
+      "nutrition_tips": [
+        "Feed a complete, AAFCO-compliant diet appropriate for your dog\u2019s life stage.",
+        "Keep treats under 10% of daily calories.",
+        "Ensure fresh water at all times.",
+        "Maintain a consistent feeding schedule."
+      ],
+      "ts": "2025-08-27T10:41:10.570424Z"
+    },
+    {
+      "image_id": "566a061b-3e23-4a89-bd0a-8fdbf439f75a.jpg",
+      "filename": "566a061b-3e23-4a89-bd0a-8fdbf439f75a.jpg",
+      "breed": "German shepherd",
+      "breed_confidence": 0.9992374181747437,
+      "brightness": 0.5445621483994396,
+      "clarity": 0.23447108721404175,
+      "color_balance": 0.9260466570638053,
+      "summary": "Photo quality limitations may affect assessment.",
+      "nutrition_tips": [
+        "Feed a complete, AAFCO-compliant diet appropriate for your dog\u2019s life stage.",
+        "Keep treats under 10% of daily calories.",
+        "Ensure fresh water at all times.",
+        "Maintain a consistent feeding schedule."
+      ],
+      "ts": "2025-08-27T10:45:27.278817Z"
+    },
+    {
+      "image_id": "a6b3b460-6642-45a1-9097-bc5534cbe4d5.jpg",
+      "filename": "a6b3b460-6642-45a1-9097-bc5534cbe4d5.jpg",
+      "breed": "German shepherd",
+      "breed_confidence": 0.9992374181747437,
+      "brightness": 0.5445621483994396,
+      "clarity": 0.23447108721404175,
+      "color_balance": 0.9260466570638053,
+      "summary": "Photo quality limitations may affect assessment.",
+      "nutrition_tips": [
+        "Feed a complete, AAFCO-compliant diet appropriate for your dog\u2019s life stage.",
+        "Keep treats under 10% of daily calories.",
+        "Ensure fresh water at all times.",
+        "Maintain a consistent feeding schedule."
+      ],
+      "ts": "2025-08-27T10:48:33.262958Z"
+    },
+    {
+      "image_id": "5e0f1e17-cf6f-444d-8801-d3b26d929416.jpg",
+      "filename": "5e0f1e17-cf6f-444d-8801-d3b26d929416.jpg",
+      "breed": "Pomeranian",
+      "breed_confidence": 0.8851466178894043,
+      "brightness": 0.6326515365701116,
+      "clarity": 0.01174060921097031,
+      "color_balance": 0.5021298401614975,
+      "summary": "Photo quality limitations may affect assessment.",
+      "nutrition_tips": [
+        "Feed a complete, AAFCO-compliant diet appropriate for your dog\u2019s life stage.",
+        "Keep treats under 10% of daily calories.",
+        "Ensure fresh water at all times.",
+        "Maintain a consistent feeding schedule."
+      ],
+      "ts": "2025-08-27T10:48:43.346824Z"
+    },
+    {
+      "image_id": "187f93f2-c11c-4d91-8676-d66f496fcd12.jpg",
+      "filename": "187f93f2-c11c-4d91-8676-d66f496fcd12.jpg",
+      "breed": "German shepherd",
+      "breed_confidence": 0.9992374181747437,
+      "brightness": 0.5445621483994396,
+      "clarity": 0.23447108721404175,
+      "color_balance": 0.9260466570638053,
+      "summary": "Photo quality limitations may affect assessment.",
+      "nutrition_tips": [
+        "Feed a complete, AAFCO-compliant diet appropriate for your dog\u2019s life stage.",
+        "Keep treats under 10% of daily calories.",
+        "Ensure fresh water at all times.",
+        "Maintain a consistent feeding schedule."
+      ],
+      "ts": "2025-08-27T10:53:56.739919Z"
+    },
+    {
+      "image_id": "0e2ea7af-920d-471c-9e46-39a232650d3c.jpg",
+      "filename": "0e2ea7af-920d-471c-9e46-39a232650d3c.jpg",
+      "breed": "Pomeranian",
+      "breed_confidence": 0.8851466178894043,
+      "brightness": 0.6326515365701116,
+      "clarity": 0.01174060921097031,
+      "color_balance": 0.5021298401614975,
+      "summary": "Photo quality limitations may affect assessment.",
+      "nutrition_tips": [
+        "Feed a complete, AAFCO-compliant diet appropriate for your dog\u2019s life stage.",
+        "Keep treats under 10% of daily calories.",
+        "Ensure fresh water at all times.",
+        "Maintain a consistent feeding schedule."
+      ],
+      "ts": "2025-08-27T10:54:06.339724Z"
+    }
+  ]
+}

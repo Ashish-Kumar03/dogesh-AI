@@ -72,6 +72,16 @@ export default function UploadScreen({ route }) {
       setLoading(false);
     }
   };
+  const fetchSessionImages = async () => {
+    if (!sessionId) return;
+    try {
+      const res = await axios.get(`${API_URL}/session/${sessionId}/history`);
+      const imgs = res.data.image_history || [];
+      setAllImages(imgs); // add new state: allImages
+    } catch (err) {
+      console.log("Error fetching session images", err);
+    }
+  };
 
   const downloadReport = async () => {
     if (!sessionId) return;

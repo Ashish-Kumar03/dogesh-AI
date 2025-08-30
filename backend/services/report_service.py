@@ -2,7 +2,7 @@ import os
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
-from typing import List, Dict, Optional
+from typing import List, Dict
 from .storage import REPORT_DIR, register_report
 from fastapi import HTTPException
 from services.dog_detector import is_dog_image
@@ -28,10 +28,7 @@ def analyze_dog_image(image_path: str) -> dict:
     }
 
 
-def create_session_report_pdf(
-    session_id: str,
-    data: Dict,
-) -> str:
+def create_session_report_pdf(session_id: str, data: Dict) -> str:
     """
     Generate a PDF report for a single session safely,
     handling different chat history formats.
@@ -58,6 +55,33 @@ def create_session_report_pdf(
             c.setFont("Helvetica-Bold", 14)
             c.drawString(72, y, f"Image Analysis {idx}")
             y -= 20
+
+            # ✅ fallback: use image_path if present, else filename
+            image_path = item.get("image_path") or item.get("filename")
+
+            if image_path and os.path.exists(image_path):
+                try:
+                    from reportlab.platypus import Image as RLImage
+                    from reportlab.platypus import SimpleDocTemplate, Spacer
+                    from reportlab.lib.utils import ImageReader
+
+                    img = ImageReader(image_path)
+                    iw, ih = img.getSize()
+                    max_width, max_height = 3*inch, 3*inch
+                    scale = min(max_width/iw, max_height/ih, 1.0)
+                    iw, ih = iw*scale, ih*scale
+
+                    if y - ih < 100:  # new page if not enough space
+                        c.showPage()
+                        y = h - 72
+                    c.drawImage(img, 72, y-ih, width=iw, height=ih)
+                    y -= ih + 10
+                except Exception as e:
+                    c.setFont("Helvetica-Oblique", 9)
+                    c.drawString(72, y, f"[Could not render image: {e}]")
+                    y -= 14
+
+            # Analysis text
             analysis = item.get("analysis", {})
             c.setFont("Helvetica", 10)
             for k, v in analysis.items():
@@ -71,39 +95,40 @@ def create_session_report_pdf(
 
     # --- Chat History ---
     chats = data.get("chat_history", [])
-    c.setFont("Helvetica-Bold", 14)
-    c.drawString(72, y, "Chat History")
-    y -= 20
-    c.setFont("Helvetica", 10)
+    if chats:
+        c.setFont("Helvetica-Bold", 14)
+        c.drawString(72, y, "Chat History")
+        y -= 20
+        c.setFont("Helvetica", 10)
 
-    for item in chats:
-        q = a = ""
-        # Handle string messages
-        if isinstance(item, str):
-            q = f"Q: {item}"
-        # Handle dict with question/answer
-        elif isinstance(item, dict):
-            if "question" in item:
-                q = f"Q: {item['question']}"
-                a = f"A: {item.get('answer','')}"
+        for item in chats:
+            q = a = ""
+            # Handle string messages
+            if isinstance(item, str):
+                q = f"Q: {item}"
+            # Handle dict with question/answer
+            elif isinstance(item, dict):
+                if "question" in item:
+                    q = f"Q: {item['question']}"
+                    a = f"A: {item.get('answer','')}"
+                else:
+                    role = item.get("role", "Unknown")
+                    content = item.get("text", item.get("content", ""))
+                    q = f"{role}: {content}"
             else:
-                role = item.get("role", "Unknown")
-                content = item.get("text", item.get("content", ""))
-                q = f"{role}: {content}"
-        else:
-            continue
-
-        for ln in (q, a):
-            if not ln:
                 continue
-            for wrap in _wrap_line(ln, 90):
-                if y < 72:
-                    c.showPage()
-                    y = h - 72
-                    c.setFont("Helvetica", 10)
-                c.drawString(72, y, wrap)
-                y -= 14
-        y -= 6
+
+            for ln in (q, a):
+                if not ln:
+                    continue
+                for wrap in _wrap_line(ln, 90):
+                    if y < 72:
+                        c.showPage()
+                        y = h - 72
+                        c.setFont("Helvetica", 10)
+                    c.drawString(72, y, wrap)
+                    y -= 14
+            y -= 6
 
     c.showPage()
     c.save()

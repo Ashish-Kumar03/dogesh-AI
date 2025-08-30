@@ -8,6 +8,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
 import UploadScreen from "./screens/UploadScreen";
 import ReportsScreen from "./screens/ReportsScreen";
+import NutrientCalculator from "./screens/NutrientCalculator";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="Chat" component={ChatScreen} />
         <Stack.Screen name="Upload" component={UploadScreen} />
         <Stack.Screen name="Reports" component={ReportsScreen} />
+        <Stack.Screen name="NutrientCalculator" component={NutrientCalculator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

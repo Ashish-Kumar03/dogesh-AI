@@ -4,6 +4,11 @@ from fastapi.staticfiles import StaticFiles
 import os, io, json
 from PIL import Image
 
+from services.nutrient_service import calculate_nutrients
+from services.location_service import enrich_with_location
+from services.llm_service import generate_dynamic_answer
+
+
 from services.dog_detector import is_dog_image
 from services.breed_classifier import predict_breed
 from services.session_store import SessionStore
@@ -56,7 +61,7 @@ def start_session(existing_session_id: str = None):
 @app.get("/session/{session_id}/history")
 def get_session_history(session_id: str):
     if not sessions.exists(session_id):
-        path = os.path.join(sessions.SESSIONS_DIR, f"{session_id}.json")
+        path = os.path.join(SessionStore.SESSIONS_DIR, f"{session_id}.json")
         if not os.path.exists(path):
             return []
         with open(path, "r", encoding="utf-8") as f:
@@ -68,13 +73,39 @@ def get_session_history(session_id: str):
 # ----------------- CHAT IN SESSION -----------------
 @app.post("/session/{session_id}/chat", response_model=ChatAnswer)
 def chat_in_session(session_id: str, req: ChatRequest):
+    """
+    Handles user chat in a session with:
+    - LLM-powered conversational flow (ChatGPT-style)
+    - Nutrient calculator integration
+    - Location-based enrichment
+    - Dynamic follow-up questions
+    """
     if not sessions.exists(session_id):
         sessions.create_session_with_id(session_id)
 
-    answer, matched, score = chat_service.answer_question(req.question)
-    sessions.add_chat(session_id, "user", req.question)
+    user_msg = req.question.strip()
+    location = getattr(req, "location", None)
+    history = sessions.get_history(session_id).get("chat_history", [])
+
+    # --- 1. Generate answer with LLM ---
+    answer = generate_dynamic_answer(user_msg, history, location)
+
+    # --- 2. Nutrient calculation if triggered ---
+    if "nutrient" in user_msg.lower() or "diet" in user_msg.lower() or "calorie" in user_msg.lower():
+        nutrient_data = calculate_nutrients(user_msg)
+        answer += f"\n\n📊 Nutrient Analysis:\n{nutrient_data}"
+
+    # --- 3. Location enrichment ---
+    if location:
+        location_note = enrich_with_location(location, user_msg)
+        if location_note:
+            answer += f"\n\n🌍 Location-based advice:\n{location_note}"
+
+    # --- 4. Save conversation ---
+    sessions.add_chat(session_id, "user", user_msg)
     sessions.add_chat(session_id, "bot", answer)
-    return ChatAnswer(answer=answer, matched_question=matched, score=score)
+
+    return ChatAnswer(answer=answer, matched_question=None, score=1.0)
 
 
 # ----------------- IMAGE UPLOAD & ANALYSIS -----------------
@@ -177,3 +208,6 @@ def get_session_report(session_id: str):
         "chat_count": len(data.get("chat_history", [])),
         "image_count": len(data.get("image_history", [])),  # fixed typo
     }
+
+
+
